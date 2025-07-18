@@ -2,12 +2,12 @@
 导师让我跑一个[RoboMimic_Deploy](https://github.com/ccrpRepo/RoboMimic_Deploy/tree/master) 项目，其中代码用了pygame来调用手柄。手头正好有PS5的手柄，但是用WSL2默认不支持USB以及没有驱动，网上有很多WSL连接xbox手柄的教程但ps5手柄却没有，虽然没什么区别，但中间还是费了点功夫，分享一下需要注意的点。
 # 步骤
 WSL中的Ubuntu不能连接手柄有2个原因：
-1. WSL不提供本机连接USB设备的支持
-2. WSL的Ubuntu内核没有编译手柄的驱动
+1. [WSL不提供本机连接USB设备的支持](#USB连接)
+2. [WSL的Ubuntu内核没有编译手柄的驱动](#重新编译内核，添加手柄驱动)
 
 因此需要一步步来
 
-## USB连接
+# USB连接
 参考：[微软官方文档-连接 USB 设备](https://learn.microsoft.com/zh-cn/windows/wsl/connect-usb)
 
 1.  win中下载安装[usbipd-win](https://github.com/dorssel/usbipd-win/releases)
@@ -111,7 +111,9 @@ WSL中的Ubuntu不能连接手柄有2个原因：
 		6. HID bus support 其他选项和 Special HID drivers
 		  （这个一定要保证上面的都选中了，否则可能没有 PlayStation HID Driver选项或者只能选择module）
 		
-	可以参考下图（~~多图警告~~ ）：
+	我知道你肯定嫌麻烦，所以我把编译好的内核传到[github](https://github.com/tq3940/WSL-Ubuntu-DualSense)了（内核版本6.6.87.2），欢迎来玩呀━(*｀∀´*)ノ亻!
+	
+	想手动配置可以参考下图（~~多图警告~~ ）：
 	![请添加图片描述](https://i-blog.csdnimg.cn/direct/84fa7853e1944218b9cc0beaa1ea47ed.jpeg)
 	![请添加图片描述](https://i-blog.csdnimg.cn/direct/352b328099124758ba9a11d3fe149e95.jpeg)
 	![请添加图片描述](https://i-blog.csdnimg.cn/direct/b80ae1efb91846d4b54c9c0da99bf832.jpeg)
